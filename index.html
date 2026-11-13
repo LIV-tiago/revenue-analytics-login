@@ -4,24 +4,69 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welcome to the new Salesforce org</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #05053A;
+  :root{
+    --navy:#05053A;
+    --green:#21DE8A;
+    --lime:#BCFD5C;
+    --margem:clamp(26px, 7vmin, 76px);
   }
-  .card {
-    height: 100%;
-    width: 100%;
-    background-image: url("welcome.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%;background:var(--navy);}
+  body{
+    font-family:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .painel{position:relative;height:100%;width:100%;padding:var(--margem);overflow:hidden;}
+  .sobrescrito{
+    margin:0 0 clamp(10px,2.6vmin,28px);
+    color:var(--green);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:clamp(10px,1.9vmin,21px);
+    line-height:1.2;
+  }
+  h1{
+    margin:0;
+    max-width:14ch;
+    color:#fff;
+    font-weight:700;
+    font-size:clamp(24px,6.3vmin,66px);
+    line-height:1.05;
+    letter-spacing:-.02em;
+  }
+  h1 .ponto{color:var(--lime);}
+  .arcos{
+    position:absolute;
+    left:var(--margem);
+    bottom:var(--margem);
+    width:min(58%, 52vh);
+    height:auto;
+    pointer-events:none;
+  }
+  .marca{
+    position:absolute;
+    right:var(--margem);
+    bottom:calc(var(--margem) + 1.5vh);
+    width:min(32%, 240px);
+    height:auto;
+  }
+  /* painel muito baixo: encolhe os arcos para não tocarem na frase */
+  @media (max-aspect-ratio: 1/1) and (max-height:560px){
+    .arcos{width:min(44%, 40vh);}
   }
 </style>
 </head>
 <body>
-  <div class="card" role="img" aria-label="Welcome to the new Salesforce org"></div>
+  <div class="painel">
+    <p class="sobrescrito">Revenue Analytics CRM</p>
+    <h1>Welcome to the new Salesforce org<span class="ponto">.</span></h1>
+    <img class="arcos" src="arcos.png" alt="">
+    <img class="marca" src="marca.png" alt="revenue analytics">
+  </div>
 </body>
 </html>
